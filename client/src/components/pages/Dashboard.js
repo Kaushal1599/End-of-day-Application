@@ -163,9 +163,7 @@ export const Dashboard = props => {
           {employee.map(post => (
             <tr>
               <td>
-                <strong key={post._id}>
-                  <Link to="/Manager">{post.name} </Link>
-                </strong>
+                <strong key={post._id}>{post.name}</strong>
               </td>
 
               <td>

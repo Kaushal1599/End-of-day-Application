@@ -236,6 +236,19 @@ export const Manager = () => {
         ))}
       </div>
     );
+  } else {
+    return (
+      <div className="container">
+        <div className="jumbotron">
+          <h1>
+            <span className="text-primary"> Manager Dashboard </span>
+          </h1>
+          <h3>
+            <strong className="text-primary"> This Employee is Manager</strong>
+          </h3>
+        </div>
+      </div>
+    );
   }
 };
 
