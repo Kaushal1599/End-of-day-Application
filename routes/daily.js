@@ -108,6 +108,16 @@ router.get("/find/:name", async (req, res) => {
   }
 });
 
+router.get("/all", async (req, res) => {
+  try {
+    const Employee = await User.find({});
+    //console.log(Employee);
+
+    res.json(Employee);
+  } catch (err) {
+    console.log(err);
+  }
+});
 router.get("/:name", async (req, res) => {
   //console.log("inside name");
   try {

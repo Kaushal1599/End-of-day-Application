@@ -1,12 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../components/auth/Authcontext";
 import axios from "axios";
 import Alertcontext from "../../components/Alert/Alertcontext";
-export const Dashboard = () => {
+export const Dashboard = props => {
   const authcontext = useContext(AuthContext);
   const alertcontext = useContext(Alertcontext);
   const [posts, setPosts] = useState([]);
+  const [employee, setEmployee] = useState([]);
   const [id, setId] = useState("");
   const [idfromButton, setidfromButton] = useState("");
   const onsubmit = async () => {
@@ -32,6 +33,18 @@ export const Dashboard = () => {
     }
   };
   const { user, isManager, isTelecaller, isExecutive } = authcontext;
+
+  useEffect(() => {
+    try {
+      axios.get("api/daily/all").then(res => {
+        setEmployee(res.data);
+        console.log(res.data);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    authcontext.loadUser();
+  }, [setEmployee]);
 
   if (isExecutive) {
     return (
@@ -139,6 +152,34 @@ export const Dashboard = () => {
             </div>
           </div>
         ))}
+        <h1 className="text-primary">List Of Employee</h1>
+        <table className="table">
+          <thead>
+            <th>Name</th>
+            <th>Emp_ID</th>
+            <th>Email</th>
+          </thead>
+
+          {employee.map(post => (
+            <tr>
+              <td>
+                <strong key={post._id}>
+                  <Link to="/Manager">{post.name} </Link>
+                </strong>
+              </td>
+
+              <td>
+                {" "}
+                <strong> {post.emp_id}</strong>
+              </td>
+
+              <td>
+                {" "}
+                <strong> {post.email}</strong>
+              </td>
+            </tr>
+          ))}
+        </table>
       </div>
     );
   }

@@ -23,12 +23,25 @@ export const Form = () => {
   const onSubmit = e => {
     e.preventDefault();
 
-    AuthContext.Form({
-      total,
-      recieved,
-      not_recieved,
-      response
-    });
+    var recieved1 = parseInt(recieved);
+    var not_recieved1 = parseInt(not_recieved);
+    var total1 = parseInt(total);
+
+    var currentTotal = recieved1 + not_recieved1;
+
+    //console.log(total1);
+    //console.log(currentTotal);
+
+    if (currentTotal === total1) {
+      AuthContext.Form({
+        total,
+        recieved,
+        not_recieved,
+        response
+      });
+    } else {
+      alertcontext.setAlert("Invalid Input", "danger");
+    }
   };
 
   useEffect(() => {
@@ -39,6 +52,9 @@ export const Form = () => {
       alertcontext.setAlert("Successfully Submitted", "success");
       clearForm();
     }
+    console.log(total);
+    console.log(not_recieved);
+
     AuthContext.loadUser();
   }, [error, form]);
 
