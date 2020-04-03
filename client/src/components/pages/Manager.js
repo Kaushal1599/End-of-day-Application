@@ -25,7 +25,7 @@ export const Manager = () => {
     setForm([]);
 
     try {
-      var url = "http://localhost:5000/api/daily/";
+      var url = ".api/daily/";
       url = url + id;
 
       await axios.get(url).then(res => {
@@ -43,7 +43,7 @@ export const Manager = () => {
     setForm([]);
 
     try {
-      var url = "http://localhost:5000/api/leave/find/";
+      var url = ".api/leave/find/";
       url = url + id;
 
       await axios.get(url).then(res => {
@@ -60,7 +60,7 @@ export const Manager = () => {
     setDaily([]);
     setLeave([]);
     try {
-      var url = "http://localhost:5000/api/report/find/";
+      var url = ".api/report/find/";
       url = url + id;
 
       await axios.get(url).then(res => {

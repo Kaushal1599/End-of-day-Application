@@ -16,16 +16,17 @@ export const Dashboard = () => {
     console.log(idfromButton);
 
     try {
-      var url = "http://localhost:5000/api/daily/find/";
+      var url = ".api/daily/find/";
       url = url + id;
 
       await axios.get(url).then(res => {
         localStorage.setItem("emp_id", res.data[0].emp_id);
         setPosts(res.data);
-        //console.log(res.data);
+        console.log(res.data);
       });
     } catch (err) {
       alertcontext.setAlert(err.response.data[0], "danger");
+      console.log(err.response.data[0]);
 
       console.log(err);
     }
