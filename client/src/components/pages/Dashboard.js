@@ -16,10 +16,10 @@ export const Dashboard = () => {
     console.log(idfromButton);
 
     try {
-      var url = ".api/daily/find/";
-      url = url + id;
+      //var url = ".api/daily/find/";
+      //url = url + id;
 
-      await axios.get(url).then(res => {
+      await axios.get("api/daily/find/" + id).then(res => {
         localStorage.setItem("emp_id", res.data[0].emp_id);
         setPosts(res.data);
         console.log(res.data);

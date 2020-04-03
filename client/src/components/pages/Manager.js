@@ -25,10 +25,10 @@ export const Manager = () => {
     setForm([]);
 
     try {
-      var url = ".api/daily/";
-      url = url + id;
+      //var url = ".api/daily/";
+      //url = url + id;
 
-      await axios.get(url).then(res => {
+      await axios.get("api/daily/" + id).then(res => {
         console.log(res);
         setDaily(res.data);
       });
@@ -43,10 +43,10 @@ export const Manager = () => {
     setForm([]);
 
     try {
-      var url = ".api/leave/find/";
-      url = url + id;
+      //var url = ".api/leave/find/";
+      //url = url + id;
 
-      await axios.get(url).then(res => {
+      await axios.get("api/leave/find/" + id).then(res => {
         console.log(res);
         setLeave(res.data);
       });
@@ -60,10 +60,10 @@ export const Manager = () => {
     setDaily([]);
     setLeave([]);
     try {
-      var url = ".api/report/find/";
-      url = url + id;
+      //var url = ".api/report/find/";
+      //url = url + id;
 
-      await axios.get(url).then(res => {
+      await axios.get("api/report/find/" + id).then(res => {
         console.log(res);
         setForm(res.data);
       });
