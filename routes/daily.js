@@ -35,7 +35,7 @@ router.post(
 
     let user = await DailyUpate.find({
       date: currentDate,
-      user_id: userc
+      user_id: userc,
     });
 
     console.log(user);
@@ -49,7 +49,7 @@ router.post(
         task,
         work,
         hour,
-        user_id
+        user_id,
       });
 
       const Daily = await update.save();

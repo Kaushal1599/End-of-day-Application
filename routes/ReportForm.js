@@ -44,7 +44,7 @@ router.post(
         recieved,
         not_recieved,
         response,
-        user_id
+        user_id,
       });
 
       const Daily = await update.save();
@@ -82,13 +82,14 @@ router.get("/find/:name", async (req, res) => {
 
   //console.log(req.params.name);
   try {
+    const sortby = { date: -1 };
     const found = await User.find({ name: req.params.name });
 
     //console.log(found);
 
     // const data = await DailyUpate.find({ user_id: found[0]._id }).sort(sortby);
 
-    const form = await ReportForm.find({ user_id: found[0]._id });
+    const form = await ReportForm.find({ user_id: found[0]._id }).sort(sortby);
 
     if (form.length === 0) {
       return res.status(400).json(["Form Not Found"]);

@@ -28,7 +28,7 @@ export const Manager = () => {
       //var url = ".api/daily/";
       //url = url + id;
 
-      await axios.get("api/daily/" + id).then(res => {
+      await axios.get("api/daily/" + id).then((res) => {
         console.log(res);
         setDaily(res.data);
       });
@@ -46,7 +46,7 @@ export const Manager = () => {
       //var url = ".api/leave/find/";
       //url = url + id;
 
-      await axios.get("api/leave/find/" + id).then(res => {
+      await axios.get("api/leave/find/" + id).then((res) => {
         console.log(res);
         setLeave(res.data);
       });
@@ -63,7 +63,7 @@ export const Manager = () => {
       //var url = ".api/report/find/";
       //url = url + id;
 
-      await axios.get("api/report/find/" + id).then(res => {
+      await axios.get("api/report/find/" + id).then((res) => {
         console.log(res);
         setForm(res.data);
       });
@@ -107,36 +107,40 @@ export const Manager = () => {
           </div>
         </div>
 
-        {Leave.map(post => (
-          <table className="table" width="100%">
-            <tr>
-              <th>Number of Holiday</th>
-              <th>Date</th>
-              <th>Reason</th>
-            </tr>
-            <tr>
-              <td key={post._id}>{post.holiday}</td>
-              <td>{post.date.slice(0, 10)}</td>
-              <td>{post.reason}</td>
-            </tr>
-          </table>
+        {Leave.map((post) => (
+          <div className="container">
+            <table className="table" width="100%">
+              <tr>
+                <th>Number of Holiday</th>
+                <th>Date</th>
+                <th>Reason</th>
+              </tr>
+              <tr>
+                <td key={post._id}>{post.holiday}</td>
+                <td>{post.date.slice(0, 10)}</td>
+                <td>{post.reason}</td>
+              </tr>
+            </table>
+          </div>
         ))}
 
-        {Daily.map(post => (
-          <table className="table" width="100%">
-            <tr>
-              <th>Task</th>
-              <th>Work</th>
-              <th>Hour</th>
-              <th>Submitted On</th>
-            </tr>
-            <tr>
-              <td key={post._id}>{post.task}</td>
-              <td>{post.work}</td>
-              <td>{post.hour}</td>
-              <td>{post.date.slice(0, 10)}</td>
-            </tr>
-          </table>
+        {Daily.map((post) => (
+          <div className="container">
+            <table className="table" width="100%">
+              <tr>
+                <th>Task</th>
+                <th>Work</th>
+                <th>Hour</th>
+                <th>Submitted On</th>
+              </tr>
+              <tr>
+                <td key={post._id}>{post.task}</td>
+                <td>{post.work}</td>
+                <td>{post.hour}</td>
+                <td>{post.date.slice(0, 10)}</td>
+              </tr>
+            </table>
+          </div>
         ))}
       </div>
     );
@@ -183,38 +187,42 @@ export const Manager = () => {
           </div>
         </div>
 
-        {Leave.map(post => (
-          <table className="table" width="100%">
-            <tr>
-              <th>Number of Holiday</th>
-              <th>Date</th>
-              <th>Reason</th>
-            </tr>
-            <tr>
-              <td key={post._id}>{post.holiday}</td>
-              <td>{post.date.slice(0, 10)}</td>
-              <td>{post.reason}</td>
-            </tr>
-          </table>
+        {Leave.map((post) => (
+          <div className="container">
+            <table className="table" width="100%">
+              <tr>
+                <th>Number of Holiday</th>
+                <th>Date</th>
+                <th>Reason</th>
+              </tr>
+              <tr>
+                <td key={post._id}>{post.holiday}</td>
+                <td>{post.date.slice(0, 10)}</td>
+                <td>{post.reason}</td>
+              </tr>
+            </table>
+          </div>
         ))}
 
-        {Daily.map(post => (
-          <table className="table" width="100%">
-            <tr>
-              <th>Task</th>
-              <th>Work</th>
-              <th>Hour</th>
-              <th>Submitted On</th>
-            </tr>
-            <tr>
-              <td key={post._id}>{post.task}</td>
-              <td>{post.work}</td>
-              <td>{post.hour}</td>
-              <td>{post.date.slice(0, 10)}</td>
-            </tr>
-          </table>
+        {Daily.map((post) => (
+          <div className="container">
+            <table className="table" width="100%">
+              <tr>
+                <th>Task</th>
+                <th>Work</th>
+                <th>Hour</th>
+                <th>Submitted On</th>
+              </tr>
+              <tr>
+                <td key={post._id}>{post.task}</td>
+                <td>{post.work}</td>
+                <td>{post.hour}</td>
+                <td>{post.date.slice(0, 10)}</td>
+              </tr>
+            </table>
+          </div>
         ))}
-        {Form.map(post => (
+        {Form.map((post) => (
           <div className="container">
             <table className="table" width="100%">
               <tr>
